@@ -11,35 +11,35 @@ var totalTwoElement = document.querySelector(".totalTwo");
 var callsTotal = 0;
 var smsTotal = 0;
 //add an event listener for when the add button is pressed
-function radioBillTotal(){
+function radioBillTotal() {
     var checkedRadioBtn = document.querySelector("input[name='billItemType']:checked");
-    if (checkedRadioBtn){
+    if (checkedRadioBtn) {
         var billItemType = checkedRadioBtn.value
         // billItemType will be 'call' or 'sms'
-        if (billItemType === "call"){
+        if (billItemType === "call") {
             callsTotal += 2.75;
         }
-        else if (billItemType === "sms"){
+        else if (billItemType === "sms") {
             smsTotal += 0.75;
         }
     }
     //var billItemType = checkedRadioBtn.value
-//in the event listener check if the value in the bill type textbox is 'sms' or 'call'
+    //in the event listener check if the value in the bill type textbox is 'sms' or 'call'
 
-// * add the appropriate value to the running total
-callTotalTwoElement.innerHTML = callsTotal.toFixed(2);
+    // * add the appropriate value to the running total
+    callTotalTwoElement.innerHTML = callsTotal.toFixed(2);
     smsTotalTwoElement.innerHTML = smsTotal.toFixed(2);
     var totalCost = callsTotal + smsTotal;
     totalTwoElement.innerHTML = totalCost.toFixed(2);
-// * add nothing for invalid values that is not 'call' or 'sms'.
-if (totalCost >= 50){
+    // * add nothing for invalid values that is not 'call' or 'sms'.
+    if (totalCost >= 50) {
 
-    totalTwoElement.classList.add("danger");
-}
+        totalTwoElement.classList.add("danger");
+    }
 
-else if (totalCost >= 30 && totalCost < 50){
-    totalTwoElement.classList.add("warning");
-}
+    else if (totalCost >= 30 && totalCost < 50) {
+        totalTwoElement.classList.add("warning");
+    }
 }
 //add an event listener for when the add button is pressed
 radioBillAddBtnElement.addEventListener('click', radioBillTotal);
