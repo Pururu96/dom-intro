@@ -6,7 +6,7 @@ var radioBillAddBtnElement = document.querySelector(".radioBillAddBtn")
 //create a variable that will keep track of the total bill
 var callTotalTwoElement = document.querySelector(".callTotalTwo");
 var smsTotalTwoElement = document.querySelector(".smsTotalTwo");
-var totalTwoElement = document.querySelector(".totalTwo")
+var totalTwoElement = document.querySelector(".totalTwo");
 
 var callsTotal = 0;
 var smsTotal = 0;
@@ -34,11 +34,11 @@ callTotalTwoElement.innerHTML = callsTotal.toFixed(2);
 // * add nothing for invalid values that is not 'call' or 'sms'.
 if (totalCost >= 50){
 
-    totalOneElem.classList.add("danger");
+    totalTwoElement.classList.add("danger");
 }
 
 else if (totalCost >= 30 && totalCost < 50){
-    totalOneElem.classList.add("warning");
+    totalTwoElement.classList.add("warning");
 }
 }
 //add an event listener for when the add button is pressed
