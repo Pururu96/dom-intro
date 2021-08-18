@@ -50,6 +50,7 @@ function radioBillTotal() {
     if (checkedRadioBtn) {
         if (overallTotal<criticalLevel){
             var billItemType = checkedRadioBtn.value
+            //console.log(billItemType)
         // billItemType will be 'call' or 'sms'
             if (billItemType === "call") {
             callsTotal += callCost;
@@ -68,6 +69,7 @@ function radioBillTotal() {
 
     // * display the latest total on the screen.
     var totalCost = callsTotal + smsTotal;
+    //console.log(totalCost)
     totalSettingsElement.innerHTML = totalCost.toFixed(2);
 
     // * check the value thresholds and display the total value in the right color.
@@ -75,7 +77,7 @@ function radioBillTotal() {
         totalSettingsElement.classList.add("warning");
     }
 
-    else if (totalCost >= 50) {
+    else if (totalCost >= criticalLevel) {
         totalSettingsElement.classList.add("danger");
     }
 }
