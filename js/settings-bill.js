@@ -6,7 +6,7 @@ var smsCostSettingElement = document.querySelector(".smsCostSetting")
 var warningLevelSettingElement = document.querySelector(".warningLevelSetting")
 var criticalLevelSettingElement = document.querySelector(".criticalLevelSetting")
 //get a reference to the add button
-var buttonPrimaryElement = document.querySelector(".button-primary")
+var buttonPrimaryElement = document.querySelector(".addBtn")
 //get a reference to the 'Update settings' button
 var updateSettingsBtn = document.querySelector(".updateSettings")
 // create a variables that will keep track of all the settings
@@ -33,12 +33,20 @@ function updateSettings() {
     smsCost = Number(smsCostSettingElement.value);
     warningLevel = warningLevelSettingElement.value;
     criticalLevel = criticalLevelSettingElement.value;
+
+    // console.log(callCost)
+    // console.log(smsCost)
+    // console.log(warningLevel)
+    // console.log(criticalLevel)
 }
+
 //add an event listener for when the 'Update settings' button is pressed
 updateSettingsBtn.addEventListener('click', updateSettings);
 
 function radioBillTotal() {
+    //alert("Hello!")
     var checkedRadioBtn = document.querySelector("input[name='billItemTypeWithSettings']:checked");
+    //console.log(checkedRadioBtn)
     if (checkedRadioBtn) {
         if (overallTotal<criticalLevel){
             var billItemType = checkedRadioBtn.value
@@ -53,7 +61,7 @@ function radioBillTotal() {
 
     //in the event listener check if the value in the bill type textbox is 'sms' or 'call'
 
-    // * add the appropriate value to the call / sms total
+    //* add the appropriate value to the call / sms total
     callTotalSettingsElement.innerHTML = callsTotal.toFixed(2);
     smsTotalSettingsElement.innerHTML = smsTotal.toFixed(2);
     // * add the appropriate value to the overall total
@@ -70,7 +78,9 @@ function radioBillTotal() {
     else if (totalCost >= 50) {
         totalSettingsElement.classList.add("danger");
     }
-}}
+}
+}
 
 //add an event listener for when the add button is pressed
 buttonPrimaryElement.addEventListener('click', radioBillTotal);
+//console.log(buttonPrimaryElement)
